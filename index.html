@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name=description content="PWAのサンプルページです">
+    <meta name="theme-color" content="#000000"/>
+    <title>Minimal PWA</title>
+    <link rel="apple-touch-icon" href="img/icon-512x512.png" sizes="192x192" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
+  <body>
+    <h1>Hello PWA World!!</h1>
+    <script>
+      if ("serviceWorker" in navigator) {
+        console.log("serviceWorker available");
+        navigator.serviceWorker
+          .register("serviceWorker.js")
+          .then(function (registration) {
+            console.info(
+              "ServiceWorker registration successful with scope: ",
+              registration.scope
+            );
+          })
+          .catch(function (err) {
+            console.error("ServiceWorker registration failed: ", err);
+          });
+      }
+    </script>
+  </body>
+</html>
